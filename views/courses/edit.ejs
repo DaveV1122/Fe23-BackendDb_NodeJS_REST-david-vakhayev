@@ -1,0 +1,31 @@
+<%- include('../layout', { body: `
+  <section class="page-header">
+    <h2>Redigera kurs</h2>
+    <a class="btn btn-secondary" href="/courses">Tillbaka</a>
+  </section>
+
+  <section class="form-card">
+    <form action="/courses/${course.id}?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="name">Kursnamn</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          value="${course.name}" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Beskrivning</label>
+        <textarea 
+          id="description" 
+          name="description"
+        >${course.description || ''}</textarea>
+      </div>
+
+      <button type="submit">Uppdatera kurs</button>
+    </form>
+  </section>
+` }) %>

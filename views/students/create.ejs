@@ -1,0 +1,44 @@
+<%- include('../layout', { body: `
+  <section class="page-header">
+    <h2>Lägg till student</h2>
+    <a class="btn btn-secondary" href="/students">Tillbaka</a>
+  </section>
+
+  <section class="form-card">
+    <form action="/students" method="POST">
+      <div class="form-group">
+        <label for="fName">Förnamn</label>
+        <input 
+          type="text" 
+          id="fName" 
+          name="fName" 
+          required
+          placeholder="Ex: David"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="lName">Efternamn</label>
+        <input 
+          type="text" 
+          id="lName" 
+          name="lName" 
+          required
+          placeholder="Ex: Vakhayev"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="town">Stad</label>
+        <input 
+          type="text" 
+          id="town" 
+          name="town"
+          placeholder="Ex: Malmö"
+        >
+      </div>
+
+      <button type="submit">Spara student</button>
+    </form>
+  </section>
+` }) %>

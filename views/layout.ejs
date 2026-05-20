@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GritAcademy Backend DB</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1>GritAcademy</h1>
+
+      <nav>
+        <a href="/">Hem</a>
+        <a href="/students">Studenter</a>
+        <a href="/courses">Kurser</a>
+        <a href="/relations">Student/Kurs</a>
+        <a href="/api/students" target="_blank">API</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <%- body %>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>NodeJS REST API + MySQL + Web GUI</p>
+    </div>
+  </footer>
+</body>
+</html>

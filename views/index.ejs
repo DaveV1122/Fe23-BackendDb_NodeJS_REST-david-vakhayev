@@ -1,0 +1,52 @@
+<%- include('layout', { body: `
+  <section class="hero">
+    <h2>Backend DB Slutprojekt</h2>
+    <p>
+      Detta projekt är en NodeJS REST API och Web GUI för databasen GritAcademy.
+      Webbsidan använder MySQL, Express, EJS och HTML Forms.
+    </p>
+
+    <div class="button-row">
+      <a class="btn" href="/students">Hantera studenter</a>
+      <a class="btn" href="/courses">Hantera kurser</a>
+      <a class="btn" href="/relations">Hantera relationer</a>
+    </div>
+  </section>
+
+  <section class="card-grid">
+    <article class="card">
+      <h3>Studenter</h3>
+      <p>Visa, lägg till, redigera och ta bort studenter.</p>
+      <a href="/students">Öppna</a>
+    </article>
+
+    <article class="card">
+      <h3>Kurser</h3>
+      <p>Visa, lägg till, redigera och ta bort kurser.</p>
+      <a href="/courses">Öppna</a>
+    </article>
+
+    <article class="card">
+      <h3>Relationer</h3>
+      <p>Koppla studenter till kurser via relationstabellen.</p>
+      <a href="/relations">Öppna</a>
+    </article>
+
+    <article class="card">
+      <h3>REST API</h3>
+      <p>JSON endpoints för studenter, kurser och relationer.</p>
+      <a href="/api/students" target="_blank">Testa API</a>
+    </article>
+  </section>
+
+  <section class="info-box">
+    <h3>Exempel på API endpoints</h3>
+    <ul>
+      <li><code>GET /api/students</code></li>
+      <li><code>GET /api/courses</code></li>
+      <li><code>GET /api/relations</code></li>
+      <li><code>GET /api/students/id/1</code></li>
+      <li><code>GET /api/courses/search/name/Node</code></li>
+    </ul>
+  </section>
+` }) %>

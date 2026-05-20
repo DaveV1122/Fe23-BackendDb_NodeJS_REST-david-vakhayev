@@ -1,0 +1,44 @@
+<%- include('../layout', { body: `
+  <section class="page-header">
+    <h2>Kurser</h2>
+    <a class="btn" href="/courses/create">Lägg till kurs</a>
+  </section>
+
+  <section class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Kursnamn</th>
+          <th>Beskrivning</th>
+          <th>Åtgärder</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        ${courses.length === 0 ? `
+          <tr>
+            <td colspan="4" class="empty-text">Inga kurser hittades.</td>
+          </tr>
+        ` : courses.map(course => `
+          <tr>
+            <td>${course.id}</td>
+            <td>${course.name}</td>
+            <td>${course.description || ''}</td>
+            <td>
+              <div class="action-row">
+                <a class="btn btn-secondary" href="/courses/edit/${course.id}">Redigera</a>
+
+                <form class="inline-form" action="/courses/${course.id}?_method=DELETE" method="POST">
+                  <button class="btn-danger" type="submit" onclick="return confirm('Vill du ta bort kursen?')">
+                    Ta bort
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  </section>
+` }) %>

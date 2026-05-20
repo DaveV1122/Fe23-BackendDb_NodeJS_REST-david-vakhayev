@@ -1,0 +1,48 @@
+<%- include('../layout', { body: `
+  <section class="page-header">
+    <h2>Student/Kurs relationer</h2>
+    <a class="btn" href="/relations/create">Lägg till relation</a>
+  </section>
+
+  <section class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Student ID</th>
+          <th>Student</th>
+          <th>Kurs ID</th>
+          <th>Kurs</th>
+          <th>Åtgärder</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        ${relations.length === 0 ? `
+          <tr>
+            <td colspan="6" class="empty-text">Inga relationer hittades.</td>
+          </tr>
+        ` : relations.map(relation => `
+          <tr>
+            <td>${relation.id}</td>
+            <td>${relation.students_id}</td>
+            <td>${relation.fName} ${relation.lName}</td>
+            <td>${relation.courses_id}</td>
+            <td>${relation.course_name}</td>
+            <td>
+              <div class="action-row">
+                <a class="btn btn-secondary" href="/relations/edit/${relation.id}">Redigera</a>
+
+                <form class="inline-form" action="/relations/${relation.id}?_method=DELETE" method="POST">
+                  <button class="btn-danger" type="submit" onclick="return confirm('Vill du ta bort relationen?')">
+                    Ta bort
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  </section>
+` }) %>
